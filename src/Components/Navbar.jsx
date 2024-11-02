@@ -37,7 +37,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `font-bold ${isActive ? 'text-warning' : 'hover:text-warning'}`
               }
-              to="/coffees"
+              to="/Coffees"
             >
               Coffees
             </NavLink>
@@ -45,7 +45,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `font-bold ${isActive ? 'text-warning' : 'hover:text-warning'}`
               }
-              to="/dashboard"
+              to="/Dashboard"
             >
               Dashboard
             </NavLink>
@@ -69,7 +69,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               `font-bold ${isActive ? 'text-warning' : 'hover:text-warning'}`
             }
-            to="/coffees"
+            to="/Coffees"
           >
             Coffees
           </NavLink>
@@ -77,7 +77,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               `font-bold ${isActive ? 'text-warning' : 'hover:text-warning'}`
             }
-            to="/dashboard"
+            to="/Dashboard"
           >
             Dashboard
           </NavLink>
