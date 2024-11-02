@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Card = ({ coffee }) => {
-  const { image, name, category, type, origin, rating, popularity } =
+  const { id, image, name, category, type, origin, rating, popularity } =
     coffee || {};
   return (
     <div>
       <div className="flex relative gap-6">
         <Link
-          to={`/CoffeeDetails`}
+          to={`/coffee/${id}`}
           className="transition  hover:scale-105 shadow-xl rounded-xl overflow-hidden"
         >
           <figure className="w-full h-48 overflow-hidden">
