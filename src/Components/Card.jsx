@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Card = () => {
-  // const {image,name,category,category,type,origin,rating,popularity}=
+const Card = ({ coffee }) => {
+  const { image, name, category, type, origin, rating, popularity } =
+    coffee || {};
   return (
-    <div className="flex relative">
+    <div className="flex relative gap-6">
       <Link
         to={`/`}
         className="transition  hover:scale-105 shadow-xl rounded-xl overflow-hidden"

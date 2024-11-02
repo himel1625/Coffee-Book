@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-[calc(100vh-232px)] py-12 container mx-auto ">
+      <div className="min-h-[calc(100vh-232px)] py-12 container lg:max-w-[1440px] w-full sm:w-full mx-auto sm:mx-auto  scroll-smooth  px-10 ">
         <Outlet />
       </div>
       <Footer />
