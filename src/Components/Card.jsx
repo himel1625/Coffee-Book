@@ -7,7 +7,7 @@ const Card = ({ coffee }) => {
   return (
     <div className="flex relative gap-6">
       <Link
-        to={`/`}
+        to={`/CoffeeDetails`}
         className="transition  hover:scale-105 shadow-xl rounded-xl overflow-hidden"
       >
         <figure className="w-full h-48 overflow-hidden">

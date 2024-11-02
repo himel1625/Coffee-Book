@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import CoffeeCard from '../Components/CoffeeCard';
 import MainLayout from '../MainLayout/MainLayout';
+import CoffeeDetails from '../Pages/CoffeeDetails';
 import Coffees from '../Pages/Coffees';
 import Dashboard from '../Pages/Dashboard';
 import ErrorPage from '../Pages/ErrorPage';
@@ -20,18 +21,23 @@ const Route = createBrowserRouter([
         children: [
           {
             path: '/categories/:categories',
-            element: <CoffeeCard />,
             loader: () => fetch('../coffees.json'),
+            element: <CoffeeCard />,
           },
         ],
       },
       {
         path: '/Coffees',
+        loader: () => fetch('../coffees.json'),
         element: <Coffees />,
       },
       {
         path: '/Dashboard',
         element: <Dashboard />,
+      },
+      {
+        path: '/CoffeeDetails',
+        element: <CoffeeDetails />,
       },
     ],
   },

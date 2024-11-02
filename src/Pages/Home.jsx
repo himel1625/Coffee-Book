@@ -1,12 +1,11 @@
 import React from 'react';
-import { Outlet, useLoaderData } from 'react-router-dom';
+import { Outlet, useLoaderData, useParams } from 'react-router-dom';
 import Categories from '../Components/Categories';
 import Heading from '../Components/Heading';
 import Hero from '../Components/Hero';
 
 const Home = () => {
   const categories = useLoaderData();
-  console.log(categories);
   return (
     <div>
       <Hero />
