@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Card from '../Components/Card';
 const Coffees = () => {
-  const [Coffee, setCoffee] = useState([]);
   const data = useLoaderData();
+  const [Coffee, setCoffee] = useState(data);
+
   const handleSort = (sortBy) => {
     if (sortBy == 'popularity') {
       const sorted = [...data].sort((a, b) => b.popularity - a.popularity);
