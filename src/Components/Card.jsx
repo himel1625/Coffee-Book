@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { FaTrashAlt } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
 
-const Card = ({ coffee }) => {
+const Card = ({ coffee, handleRemove }) => {
+  const { pathname } = useLocation();
   const { id, image, name, category, type, origin, rating, popularity } =
     coffee || {};
   return (
@@ -23,6 +25,14 @@ const Card = ({ coffee }) => {
             <p>Popular: {popularity}</p>
           </div>
         </Link>
+        {pathname === '/Dashboard' && (
+          <div
+            onClick={() => handleRemove(id)}
+            className="absolute p-3 rounded-full cursor-pointer bg-warning -top-5 -right-5"
+          >
+            <FaTrashAlt size={20} />
+          </div>
+        )}
       </div>
     </div>
   );
