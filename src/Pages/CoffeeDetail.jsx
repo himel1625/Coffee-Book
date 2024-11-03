@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import nutritionImg from '../assets/nutrition.png';
+import { addFavorite, getallFavorite } from '../utilities/LocalStorage';
 const CoffeeDetail = () => {
   const data = useLoaderData();
   const { id } = useParams();
   const [coffeeData, setCoffeeData] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
   useEffect(() => {
     const findByCoffee = [...data].find((coffee) => coffee.id == id);
     setCoffeeData(findByCoffee);
+    const Favorite = getallFavorite();
+    console.log(Favorite);
+    const isExist = Favorite.find((item) => item.id == findByCoffee.id);
+    if (isExist) {
+      setIsFavorite(true);
+    }
   }, [id, data]);
 
   const {
@@ -20,6 +28,11 @@ const CoffeeDetail = () => {
     rating,
     popularity,
   } = coffeeData;
+
+  const handleFavorite = (coffee) => {
+    addFavorite(coffee);
+    setIsFavorite(true);
+  };
 
   return (
     <div className="my-12">
@@ -38,8 +51,8 @@ const CoffeeDetail = () => {
         </div>
         <div>
           <button
-            // disabled={isFavorite}
-            // onClick={() => handleFavorite(coffee)}
+            disabled={isFavorite}
+            onClick={() => handleFavorite(coffeeData)}
             className="btn btn-warning"
           >
             Add Favorite
@@ -76,7 +89,7 @@ const CoffeeDetail = () => {
           </div>
         </div>
         <div className="flex-1">
-          <img src={nutritionImg} alt="" />
+          <img src={nutritionImg} alt="nutritionImg" />
         </div>
       </div>
     </div>
